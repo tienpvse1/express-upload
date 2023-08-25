@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ .Values.upload_service.service.name }}
+spec:
+  selector:
+    app: {{ .Values.upload_service.app_name }}
+  ports:
+    - port: {{ .Values.upload_service.port }}
+      targetPort: {{ .Values.upload_service.port }}
+

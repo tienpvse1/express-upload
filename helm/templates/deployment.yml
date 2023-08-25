@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Values.upload_service.app_name }}
+spec:
+  selector:
+    matchLabels:
+      app: {{ .Values.upload_service.app_name }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.upload_service.app_name }}
+    spec:
+      containers:
+        - name: {{ .Values.upload_service.app_name }}
+          image: {{ .Values.upload_service.image }}
+          resources:
+            limits:
+              memory: "128Mi"
+              cpu: "500m"
+          ports:
+            - containerPort: {{ .Values.upload_service.port }}
+

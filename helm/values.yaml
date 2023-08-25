@@ -1,0 +1,6 @@
+upload_service:
+  app_name: express-upload
+  image: tienpvse/express-upload
+  port: 3000
+  service:
+    name: express-upload-service
